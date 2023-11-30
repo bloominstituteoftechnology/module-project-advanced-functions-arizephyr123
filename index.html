@@ -27,16 +27,29 @@
     // 🧠 Examples of usage:
     // processSingleLearner({ name: "Elisabeth", lovesJS: 1 }) // should return { name: "Elisabeth", lovesJS: true }
     // processSingleLearner({ name: "Pete", age: 23, lovesJS: 0 }) // should return { name: "Pete", age: 23, lovesJS: false }
+
+    //  first attempt:
+    //  
+    // const processSingleLearner = (learner) => {
+    //   for (k in learner) {
+    //     if (k === "lovesJS") {
+    //       if (learner[k] === 0) {
+    //         learner[k] = false;
+    //       }
+    //       if (learner[k] === 1) {
+    //         learner[k] = true;
+    //       }
+    //     }
+
+    //   }
+    //   return learner;
+    // }
+
+    // optimized from chatGPT using hasOwnProperty method and 
     const processSingleLearner = (learner) => {
-      for (k in learner) {
-        if (k === "lovesJS") {
-          if (learner[k] === 0) {
-            learner[k] = false;
-          }
-          if (learner[k] === 1) {
-            learner[k] = true;
-          }
-        }
+      if (learner.hasOwnProperty("lovesJS")) {
+        // sets learner obj with key "lovesJS" to true of false based on it currently had a value of 1 or not
+        learner["lovesJS"] = (learner["lovesJS"] === 1);
 
       }
       return learner;
@@ -52,8 +65,17 @@
     // ❗ Notes:
     // 🧠 There are many approaches to this problem: using a loop, using forEach, using map...
     // 🧠 Solve this challenge using a for/in loop or a for loop.
-    const processLearnersLoop = () => {
-
+    const processLearnersLoop = (learners) => {
+      learners.forEach((learnerObj) => {
+        for (k in learnerObj) {
+          if (learnerObj[k] === 0) {
+            learnerObj[k] = false;
+          } if (learnerObj[k] === 1) {
+            learnerObj[k] = true;
+          }
+        } return learnerObj;
+      })
+      return learners;
     }
 
     // 👉 CHALLENGE 3
