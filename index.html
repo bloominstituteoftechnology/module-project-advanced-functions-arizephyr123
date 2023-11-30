@@ -27,8 +27,19 @@
     // 🧠 Examples of usage:
     // processSingleLearner({ name: "Elisabeth", lovesJS: 1 }) // should return { name: "Elisabeth", lovesJS: true }
     // processSingleLearner({ name: "Pete", age: 23, lovesJS: 0 }) // should return { name: "Pete", age: 23, lovesJS: false }
-    const processSingleLearner = () => {
+    const processSingleLearner = (learner) => {
+      for (k in learner) {
+        if (k === "lovesJS") {
+          if (learner[k] === 0) {
+            learner[k] = false;
+          }
+          if (learner[k] === 1) {
+            learner[k] = true;
+          }
+        }
 
+      }
+      return learner;
     }
 
     // 👉 CHALLENGE 2
