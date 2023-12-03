@@ -112,8 +112,13 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the map method of the learners array.
     // 🧠 Use arrow functions.
-    const processLearnerMap = () => {
-
+    const processLearnerMap = (learnersArr) => {
+      let resultArr = learnersArr.map(learnerObj => {
+        if (learnerObj.hasOwnProperty("lovesJS")) {
+          learnerObj.lovesJS = learnerObj.lovesJS === 1;
+        } return learnerObj
+      })
+      return resultArr
     }
 
     // 👉 CHALLENGE 5
