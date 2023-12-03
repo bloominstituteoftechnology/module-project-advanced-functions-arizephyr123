@@ -81,18 +81,15 @@
     // }
 
     // optimized using streamlined if statements
-    // chatGPT reminds that map would 
+    // chatGPT reminds that map would not mutate the original learners array
     const processLearnersLoop = (learners) => {
       learners.forEach((learner) => {
         if (learner.hasOwnProperty("lovesJS")) {
           learner.lovesJS = learner.lovesJS === 1;
         }
       })
-
       return learners;
     }
-
-
 
     // 👉 CHALLENGE 3
     // 🧠 The function processLearnerForEach takes an array of learner objects as its argument, and returns it after some modifications.
@@ -100,8 +97,13 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the forEach method of the learners array.
     // 🧠 Use arrow functions whenever possible.
-    const processLearnerForEach = () => {
-
+    const processLearnerForEach = (learnerArr) => {
+      learnerArr.forEach(learnerObj => {
+        if (learnerObj.hasOwnProperty("lovesJS")) {
+          learnerObj.lovesJS = learnerObj.lovesJS === 1;
+        }
+      })
+      return learnerArr
     }
 
     // 👉 CHALLENGE 4
